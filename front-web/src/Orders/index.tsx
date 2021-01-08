@@ -2,13 +2,15 @@ import './styles.css'
 import StepsHeader from './StepsHeader';
 import ProductsList from './ProductsList';
 import { useEffect, useState } from 'react';
-import { Product } from './types';
+import { OrderLocationData, Product } from './types';
 import api from './api';
+import OrderLocation from './OrderLocation';
 
 export default function Orders() {
   const [products, setProducts] = useState<Product[]>([])
   const [error, setError] = useState('')
   const [loaded, setLoaded] = useState(false)
+  const [orderLocation, setOrderLocation] = useState<OrderLocationData>()
 
   useEffect(() => {
     const getProducts = async () => {
@@ -36,7 +38,10 @@ export default function Orders() {
           :
           error ? <p>ops</p>
             :
-            <ProductsList products={products} />
+            <>
+              <ProductsList products={products} />
+              <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
+            </>
       }
     </div>
   )

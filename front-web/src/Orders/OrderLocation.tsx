@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { useEffect, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import AsyncSelect from 'react-select/async';

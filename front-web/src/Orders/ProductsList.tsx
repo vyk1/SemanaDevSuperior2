@@ -1,12 +1,9 @@
+import { isSelected } from './helpers'
 import ProductsCard from './ProductsCard'
 import './styles.css'
-import { Product } from './types'
+import { ProductsListProps } from './types'
 
-type Props = {
-  products: Product[]
-}
-
-export default function ProductsList({ products }: Props) {
+export default function ProductsList({ selectedProducts, products, onSelectProduct }: ProductsListProps) {
   return (
     <div className="orders-list-container">
       <div className="orders-list-items">
@@ -15,6 +12,8 @@ export default function ProductsList({ products }: Props) {
             <ProductsCard
               key={p.id}
               product={p}
+              isSelected={isSelected(selectedProducts, p)}
+              onSelectProduct={onSelectProduct}
             />
           ))
         }

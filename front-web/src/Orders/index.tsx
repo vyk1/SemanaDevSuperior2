@@ -23,11 +23,10 @@ export default function Orders() {
     return sum + item.price
   }, 0)
 
-
   useEffect(() => {
     const getProducts = async () => {
       try {
-        setLoaded(true)
+        setLoaded(false)
         toast.info('Estamos trazendo os melhores produtos', {
           autoClose: 20000
         })

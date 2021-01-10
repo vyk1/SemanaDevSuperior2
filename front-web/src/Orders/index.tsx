@@ -28,7 +28,9 @@ export default function Orders() {
     const getProducts = async () => {
       try {
         setLoaded(true)
-        toast.info('Estamos trazendo os melhores produtos')
+        toast.info('Estamos trazendo os melhores produtos', {
+          autoClose: 20000
+        })
 
         const res = await api.get('/products')
         setProducts(res.data)
